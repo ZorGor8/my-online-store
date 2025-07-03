@@ -1,0 +1,51 @@
+/* src/components/ProductCard.css */
+
+.product-card {
+   background-color: #fff;
+   border: 1px solid #ddd;
+   border-radius: 8px;
+   padding: 15px;
+   text-align: center;
+   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+   display: flex; /* Для выравнивания содержимого по вертикали */
+   flex-direction: column; /* Элементы будут располагаться столбиком */
+   justify-content: space-between; /* Распределить пространство */
+   height: 100%; /* Карточка будет занимать всю доступную высоту в сетке */
+ }
+ 
+ .product-image {
+   max-width: 100%;
+   height: auto;
+   border-radius: 4px;
+   margin-bottom: 10px;
+ }
+ 
+ .product-title {
+   font-size: 1.2em;
+   margin-bottom: 5px;
+   color: #333;
+ }
+ 
+ .product-price {
+   font-size: 1.1em;
+   color: #007bff;
+   font-weight: bold;
+   margin-bottom: 15px;
+ }
+ 
+ .add-to-cart-button {
+   background-color: #28a745;
+   color: white;
+   border: none;
+   padding: 10px 15px;
+   border-radius: 5px;
+   cursor: pointer;
+   font-size: 1em;
+   transition: background-color 0.3s ease;
+   width: 100%; /* Кнопка на всю ширину карточки */
+   margin-top: auto; /* Прижимает кнопку к низу карточки */
+ }
+ 
+ .add-to-cart-button:hover {
+   background-color: #218838;
+ }
