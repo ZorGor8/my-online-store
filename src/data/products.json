@@ -1,0 +1,58 @@
+[
+   {
+     "id": 1,
+     "title": "Смартфон Pro X",
+     "image": "https://via.placeholder.com/150/0000FF/FFFFFF?text=Product+1",
+     "price": 799.99,
+     "category": "Электроника"
+   },
+   {
+     "id": 2,
+     "title": "Наушники Hi-Fi",
+     "image": "https://via.placeholder.com/150/FF0000/FFFFFF?text=Product+2",
+     "price": 149.50,
+     "category": "Электроника"
+   },
+   {
+     "id": 3,
+     "title": "Игровая клавиатура",
+     "image": "https://via.placeholder.com/150/00FF00/FFFFFF?text=Product+3",
+     "price": 85.00,
+     "category": "Компьютеры"
+   },
+   {
+     "id": 4,
+     "title": "Монитор UltraWide",
+     "image": "https://via.placeholder.com/150/FFFF00/000000?text=Product+4",
+     "price": 329.00,
+     "category": "Компьютеры"
+   },
+   {
+     "id": 5,
+     "title": "Мышь беспроводная",
+     "image": "https://via.placeholder.com/150/00FFFF/000000?text=Product+5",
+     "price": 35.75,
+     "category": "Компьютеры"
+   },
+   {
+     "id": 6,
+     "title": "Фитнес-трекер",
+     "image": "https://via.placeholder.com/150/FF00FF/FFFFFF?text=Product+6",
+     "price": 55.99,
+     "category": "Гаджеты"
+   },
+   {
+     "id": 7,
+     "title": "Умные часы",
+     "image": "https://via.placeholder.com/150/800080/FFFFFF?text=Product+7",
+     "price": 199.00,
+     "category": "Гаджеты"
+   },
+   {
+     "id": 8,
+     "title": "Зарядное устройство GaN",
+     "image": "https://via.placeholder.com/150/008080/FFFFFF?text=Product+8",
+     "price": 25.00,
+     "category": "Аксессуары"
+   }
+ ]

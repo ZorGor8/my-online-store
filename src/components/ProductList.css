@@ -34,3 +34,65 @@
      grid-template-columns: repeat(3, 1fr); /* Три колонки на больших экранах */
    }
  }
+/* Стили для контейнера списка продуктов */
+.product-list-container {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Стили для контейнера фильтра категорий */
+.category-filter {
+  display: flex;
+  flex-wrap: wrap; /* Позволяет кнопкам переноситься на новую строку */
+  gap: 10px; /* Расстояние между кнопками */
+  margin-bottom: 30px;
+  justify-content: center; /* Центрируем кнопки */
+}
+
+/* Стили для кнопок фильтра */
+.category-filter button {
+  background-color: #f0f0f0;
+  border: 1px solid #ddd;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  color: #333;
+}
+
+.category-filter button:hover {
+  background-color: #e0e0e0;
+  border-color: #ccc;
+}
+
+/* Стили для активной (выбранной) кнопки */
+.category-filter button.active {
+  background-color: #007bff; /* Синий фон */
+  color: white;
+  border-color: #007bff;
+  box-shadow: 0 2px 5px rgba(0, 123, 255, 0.3);
+}
+
+/* Стили для сетки продуктов */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Адаптивная сетка */
+  gap: 25px; /* Расстояние между карточками */
+  justify-items: center; /* Центрируем карточки в ячейках */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
