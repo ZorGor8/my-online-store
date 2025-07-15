@@ -1,67 +1,73 @@
-import React, { useState, useEffect } from 'react'; // Импортируем React (по умолчанию), а также useState и useEffect (именованные)
-import { useParams } from 'react-router-dom';
+// src/pages/ProductPage.jsx
+import React, { useState, useEffect } from 'react';
+import { useParams, Link } from 'react-router-dom';
 import productsData from '../data/products.json';
-import './ProductPage.css';
+import './ProductPage.css'; // <-- Убедитесь, что этот импорт присутствует и корректен
+import Modal from '../components/Modal';
+
 function ProductPage() {
-  const { productId } = useParams();
+  const { id } = useParams();
+  const [product, setProduct] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalMessage, setModalMessage] = useState('');
 
-  // --- НОВЫЕ СОСТОЯНИЯ ---
-  const [product, setProduct] = useState(null);    // Состояние для хранения найденного продукта (изначально null)
-  const [loading, setLoading] = useState(true);    // Состояние для индикатора загрузки (изначально true)
-  const [error, setError] = useState(false);      // Состояние для обработки ошибок (изначально false)
-  // --- КОНЕЦ НОВЫХ СОСТОЯНИЙ ---
-
-  // --- ХУК useEffect ---
   useEffect(() => {
-    setLoading(true); // Начинаем загрузку, устанавливаем loading в true
-    setError(false);  // Сбрасываем любые предыдущие ошибки
+    const foundProduct = productsData.find(p => p.id === parseInt(id));
+    setProduct(foundProduct);
+    setLoading(false);
+  }, [id]);
 
-    // Имитация задержки запроса к API (в реальном приложении здесь был бы fetch или axios)
-    const timer = setTimeout(() => {
-      const foundProduct = productsData.find(p => p.id === productId); // Ищем продукт
+  const handleAddToCart = (productTitle) => {
+    setModalMessage(`"${productTitle}" добавлен в корзину!`);
+    setIsModalOpen(true);
+  };
 
-      if (foundProduct) {
-        setProduct(foundProduct); // Если продукт найден, обновляем состояние product
-      } else {
-        setError(true); // Если продукт не найден, устанавливаем состояние ошибки
-      }
-      setLoading(false); // Загрузка завершена, устанавливаем loading в false
-    }, 800); // Имитация задержки в 800 миллисекунд (0.8 секунды)
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setModalMessage('');
+  };
 
-    // Функция очистки (cleanup function): выполняется при "размонтировании" компонента
-    // или перед следующим запуском эффекта. Важно для очистки таймеров, подписок и т.д.
-    return () => clearTimeout(timer); // Очищаем таймер, чтобы избежать проблем
-  }, [productId]); // Массив зависимостей: эффект запускается при первом рендере и при изменении productId
-
-  // --- ОБРАБОТКА СОСТОЯНИЙ (loading, error, product) ---
   if (loading) {
-    return (
-      <div className="not-found-message"> {/* Используем тот же класс для центрирования текста */}
-        <h2>Загрузка товара...</h2>
-      </div>
-    );
+    return <div className="loading-message">Загрузка...</div>;
   }
 
-  if (error || !product) { // Если была ошибка или продукт не найден (после загрузки)
+  if (!product) {
     return (
       <div className="not-found-message">
-        <h1>Товар не найден</h1>
-        <p>Извините, мы не смогли найти товар с таким ID.</p>
+        <h1>Продукт не найден</h1>
+        <p>К сожалению, товар с ID: {id} не существует.</p>
+        <Link to="/catalog" className="details-button">
+          Вернуться в каталог
+        </Link>
       </div>
     );
   }
 
-  // --- ЕСЛИ ВСЁ ОК, ТО РЕНДЕРИМ ДЕТАЛИ ПРОДУКТА ---
   return (
-    <div className="product-detail-container">
-      <img src={product.imageUrl} alt={product.name} className="product-detail-image" />
-      <div className="product-detail-info">
-        <h1>{product.name}</h1>
-        <p className="product-price">${product.price.toFixed(2)}</p>
-        <p><strong>Категория:</strong> {product.category}</p>
-        <p>{product.description}</p>
-        <button className="add-to-cart-button">Добавить в корзину</button>
+    <div className="product-page-container">
+      <div className="product-detail-card">
+        {product.image && (
+          <img src={product.image} alt={product.title} className="product-detail-image" />
+        )}
+        <div className="product-detail-info">
+          <h1 className="product-detail-title">{product.title}</h1>
+          <p className="product-detail-price">${product.price.toFixed(2)}</p>
+          <p className="product-detail-category">Категория: {product.category}</p>
+          <p className="product-detail-description">{product.description}</p>
+          <button className="add-to-cart-button" onClick={() => handleAddToCart(product.title)}>
+            Добавить в корзину
+          </button>
+          <Link to="/catalog" className="back-to-catalog-button">
+            Вернуться в каталог
+          </Link>
+        </div>
       </div>
+
+      <Modal isOpen={isModalOpen} onClose={handleCloseModal} title="Уведомление">
+        <p>{modalMessage}</p>
+        <button onClick={handleCloseModal}>ОК</button>
+      </Modal>
     </div>
   );
 }

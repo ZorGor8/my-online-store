@@ -1,98 +1,294 @@
 /* src/components/ProductList.css */
 
-.product-list {
-   max-width: 1200px; /* Ограничиваем максимальную ширину списка */
-   margin: 0 auto; /* Центрируем список на странице */
-   padding: 20px;
- }
- 
- .product-grid {
-   display: grid;
-   gap: 20px; /* Расстояние между карточками */
-   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Адаптивная сетка */
- }
- 
- /* Медиа-запросы для адаптивности */
- 
- /* Для очень маленьких экранов (телефоны до 600px) */
- @media (max-width: 600px) {
-   .product-grid {
-     grid-template-columns: 1fr; /* Одна колонка на очень маленьких экранах */
-   }
- }
- 
- /* Для планшетов (от 601px до 900px) */
- @media (min-width: 601px) and (max-width: 900px) {
-   .product-grid {
-     grid-template-columns: repeat(2, 1fr); /* Две колонки на планшетах */
-   }
- }
- 
- /* Для больших экранов (от 901px и выше) */
- @media (min-width: 901px) {
-   .product-grid {
-     grid-template-columns: repeat(3, 1fr); /* Три колонки на больших экранах */
-   }
- }
-/* Стили для контейнера списка продуктов */
+/* Universal Box Sizing */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
 .product-list-container {
-  padding: 20px;
-  max-width: 1200px;
-  margin: 0 auto;
+    padding: 30px 20px;
+    max-width: 1200px;
+    margin: 20px auto;
+    font-family: 'Arial', sans-serif;
 }
 
-/* Стили для контейнера фильтра категорий */
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 30px;
+    font-size: 2.5em;
+    font-weight: 700;
+}
+
+/* Search and Reset */
+.search-and-reset-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 30px;
+    flex-wrap: wrap; /* Позволяет элементам переноситься на новую строку */
+}
+
+.search-input {
+    padding: 12px 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1em;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.reset-button {
+    background-color: #f0ad4e;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    font-weight: bold;
+}
+
+.reset-button:hover {
+    background-color: #ec971f;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(240, 173, 78, 0.3);
+}
+
+/* Category Filter */
 .category-filter {
-  display: flex;
-  flex-wrap: wrap; /* Позволяет кнопкам переноситься на новую строку */
-  gap: 10px; /* Расстояние между кнопками */
-  margin-bottom: 30px;
-  justify-content: center; /* Центрируем кнопки */
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 40px;
 }
 
-/* Стили для кнопок фильтра */
 .category-filter button {
-  background-color: #f0f0f0;
-  border: 1px solid #ddd;
-  padding: 10px 15px;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
-  transition: all 0.3s ease;
-  color: #333;
+    background-color: #e9ecef;
+    color: #495057;
+    border: 1px solid #ced4da;
+    padding: 10px 18px;
+    border-radius: 20px; /* Более округлые кнопки */
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+    font-weight: 600;
+    white-space: nowrap; /* Предотвращает перенос текста */
 }
 
 .category-filter button:hover {
-  background-color: #e0e0e0;
-  border-color: #ccc;
+    background-color: #007bff;
+    color: white;
+    transform: translateY(-2px);
 }
 
-/* Стили для активной (выбранной) кнопки */
 .category-filter button.active {
-  background-color: #007bff; /* Синий фон */
-  color: white;
-  border-color: #007bff;
-  box-shadow: 0 2px 5px rgba(0, 123, 255, 0.3);
+    background-color: #007bff;
+    color: white;
+    border-color: #007bff;
+    box-shadow: 0 4px 8px rgba(0, 123, 255, 0.25);
 }
 
-/* Стили для сетки продуктов */
+/* Product Grid */
 .product-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Адаптивная сетка */
-  gap: 25px; /* Расстояние между карточками */
-  justify-items: center; /* Центрируем карточки в ячейках */
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px; /* Увеличиваем отступ между карточками */
+    justify-content: center;
+}
+
+/* Изменения здесь */
+.product-card {
+    background-color: #fff;
+    border: 1px solid var(--border-color); /* Используем переменную */
+    border-radius: 12px;
+    box-shadow: var(--box-shadow-sm); /* Изначально легкая тень */
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Анимация для transform и box-shadow */
+    text-align: center;
+    position: relative; /* Для возможного позиционирования элементов внутри */
+    /* Добавьте это, чтобы гарантировать, что все карточки будут одинаковой высоты */
+    height: 100%;
+}
+
+.product-card:hover {
+    transform: translateY(-8px); /* Эффект подъема сильнее при наведении */
+    box-shadow: var(--box-shadow-lg); /* Более выраженная тень */
+}
+
+/* ... остальной ваш код ... */
+.product-image {
+    width: 100%;
+    height: 200px; /* Фиксированная высота для изображений */
+    object-fit: contain; /* Сохраняет пропорции и вписывает изображение */
+    margin-bottom: 15px;
+    border-radius: 8px; /* Скругление углов изображения */
+}
+
+.product-title {
+    font-size: 1.5em;
+    color: #333;
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+.product-price {
+    font-size: 1.3em;
+    color: #28a745;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.product-category {
+    font-size: 0.9em;
+    color: #6c757d;
+    background-color: #f8f9fa;
+    padding: 5px 10px;
+    border-radius: 5px;
+    display: inline-block; /* чтобы фон был только вокруг текста */
+    margin-bottom: 15px;
+}
+
+/* Product Card Buttons */
+.product-card-buttons {
+    display: flex;
+    flex-direction: row; /* Кнопки будут в ряд */
+    flex-wrap: wrap; /* Позволяет кнопкам переноситься на новую строку, если не хватает места */
+    gap: 8px; /* Отступ между кнопками */
+    margin-top: auto; /* Прижимает кнопки к низу карточки */
+    width: 100%; /* Занимают всю ширину */
+    justify-content: center; /* Центрируем кнопки */
+    align-items: center; /* Выравниваем по вертикали */
+    padding-top: 10px; /* Добавим небольшой отступ сверху, чтобы отделить от категории/цены */
+}
+
+.details-button,
+.add-to-cart-button {
+    padding: 10px 15px;
+    border-radius: 6px;
+    font-size: 0.95em;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-sizing: border-box;
+    /* Убираем flex-grow: 1, чтобы кнопки не растягивались на разную ширину */
+    /* Устанавливаем фиксированную ширину или min/max ширину, чтобы они были одинаковыми */
+    width: 48%; /* Пример: 48% ширины контейнера (чтобы вместить gap) */
+    max-width: 150px; /* Максимальная ширина для больших экранов */
+    min-width: 120px; /* Минимальная ширина для более мелких экранов */
+}
+
+.details-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+}
+
+.details-button:hover {
+    background-color: #0056b3;
+    transform: translateY(-1px);
+    box-shadow: 0 3px 6px rgba(0, 123, 255, 0.25);
+}
+
+.add-to-cart-button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+}
+
+.add-to-cart-button:hover {
+    background-color: #218838;
+    transform: translateY(-1px);
+    box-shadow: 0 3px 6px rgba(40, 167, 69, 0.25);
+}
+
+/* Сообщения об отсутствии товаров */
+.product-grid p {
+    grid-column: 1 / -1; /* Растягивает текст на всю ширину сетки */
+    text-align: center;
+    font-size: 1.2em;
+    color: #666;
+    margin-top: 30px;
 }
 
 
+/* Медиа-запросы для адаптивности */
+@media (max-width: 992px) {
+    .product-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 25px;
+    }
+}
 
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2em;
+    }
+    .product-list-container {
+        padding: 15px;
+    }
+    .product-grid {
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 20px;
+    }
+    .search-and-reset-container,
+    .category-filter {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+    .search-input {
+        width: 100%;
+        max-width: none;
+    }
+    .reset-button,
+    .category-filter button {
+        width: 100%;
+        max-width: 300px;
+    }
+    .product-card {
+        padding: 15px;
+    }
+    .product-card-buttons {
+        flex-direction: column; /* На маленьких экранах - кнопки в столбик */
+        flex-wrap: nowrap; /* Не переносить, если в столбик */
+    }
+    .details-button,
+    .add-to-cart-button {
+        width: 100%; /* Растягиваем на всю ширину при столбике */
+        min-width: unset; /* Убираем минимальную ширину */
+        max-width: none; /* Убираем максимальную ширину */
+    }
+}
 
-
-
-
-
-
-
-
-
-
-
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.8em;
+    }
+    .product-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    .product-image {
+        height: 180px;
+    }
+    .search-input,
+    .reset-button,
+    .category-filter button {
+        font-size: 0.9em;
+        padding: 10px 15px;
+    }
+}

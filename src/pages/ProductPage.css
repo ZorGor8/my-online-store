@@ -1,67 +1,188 @@
-.product-detail-container {
-   max-width: 800px;
-   margin: 40px auto;
-   padding: 30px;
-   border: 1px solid #ddd;
-   border-radius: 10px;
-   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-   display: flex; /* Используем flexbox для расположения изображения и текста */
-   gap: 30px; /* Отступ между элементами */
-   align-items: flex-start; /* Выравнивание элементов по верху */
+/* src/pages/ProductPage.css */
+
+.product-page-container {
+    padding: 40px 20px;
+    max-width: 900px;
+    margin: 30px auto;
+    font-family: 'Arial', sans-serif;
+}
+
+.product-detail-card {
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-wrap: wrap; /* Позволяет элементам переноситься на новую строку */
+    overflow: hidden;
 }
 
 .product-detail-image {
-   flex: 0 0 300px; /* Фиксированная ширина для изображения */
-   max-width: 300px;
-   height: auto;
-   border-radius: 8px;
-   box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    width: 100%;
+    max-width: 400px; /* Ограничиваем максимальную ширину изображения */
+    height: auto;
+    object-fit: contain;
+    padding: 20px;
+    border-radius: 12px;
+    box-sizing: border-box; /* Учитываем padding в ширине */
+    flex-shrink: 0; /* Не позволяет изображению сжиматься */
 }
 
 .product-detail-info {
-   flex-grow: 1; /* Оставшееся пространство для информации */
+    flex-grow: 1; /* Позволяет блоку информации заполнять оставшееся пространство */
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
-.product-detail-info h1 {
-   font-size: 2.2rem;
-   color: #333;
-   margin-bottom: 15px;
+.product-detail-title {
+    font-size: 2.5em;
+    color: #333;
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-weight: 700;
+    line-height: 1.2;
 }
 
-.product-detail-info p {
-   font-size: 1.1rem;
-   line-height: 1.6;
-   color: #555;
-   margin-bottom: 10px;
+.product-detail-price {
+    font-size: 2em;
+    color: #28a745;
+    font-weight: bold;
+    margin-bottom: 20px;
 }
 
-.product-detail-info .product-price {
-   font-size: 1.8rem;
-   font-weight: bold;
-   color: #007bff;
-   margin-top: 20px;
-   margin-bottom: 20px;
+.product-detail-category {
+    font-size: 1em;
+    color: #6c757d;
+    background-color: #f8f9fa;
+    padding: 8px 15px;
+    border-radius: 20px;
+    display: inline-block;
+    margin-bottom: 20px;
+    font-weight: 500;
 }
 
-.product-detail-info .add-to-cart-button {
-   padding: 12px 25px;
-   background-color: #28a745;
-   color: white;
-   border: none;
-   border-radius: 8px;
-   cursor: pointer;
-   font-size: 1.1rem;
-   transition: background-color 0.3s ease;
+.product-detail-description {
+    font-size: 1.1em;
+    color: #444;
+    line-height: 1.6;
+    margin-bottom: 30px;
 }
 
-.product-detail-info .add-to-cart-button:hover {
-   background-color: #218838;
+.add-to-cart-button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    margin-bottom: 15px; /* Отступ от кнопки "Вернуться" */
+    display: inline-block; /* Чтобы не растягивалась на всю ширину */
 }
 
-/* Стили для сообщения "Товар не найден" */
+.add-to-cart-button:hover {
+    background-color: #218838;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(40, 167, 69, 0.25);
+}
+
+.back-to-catalog-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: bold;
+    text-decoration: none; /* Убираем подчеркивание для ссылки */
+    display: inline-block; /* Чтобы не растягивалась на всю ширину */
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.back-to-catalog-button:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 123, 255, 0.25);
+}
+
+
+/* Сообщения об отсутствии продукта */
+.loading-message,
 .not-found-message {
-   text-align: center;
-   padding: 50px;
-   font-size: 1.5rem;
-   color: #dc3545; /* Красный цвет для ошибки */
+    text-align: center;
+    padding: 50px;
+    font-size: 1.5em;
+    color: #666;
+    background-color: #fff3cd; /* Светло-желтый фон */
+    border: 1px solid #ffeeba; /* Желтая рамка */
+    border-radius: 8px;
+    margin: 50px auto;
+    max-width: 600px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.not-found-message h1 {
+    color: #dc3545; /* Красный цвет для заголовка ошибки */
+    font-size: 2.2em;
+    margin-bottom: 20px;
+}
+
+.not-found-message p {
+    font-size: 1.1em;
+    margin-bottom: 30px;
+}
+
+/* Медиа-запросы для адаптивности */
+@media (max-width: 768px) {
+    .product-detail-card {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .product-detail-image {
+        max-width: 100%; /* На маленьких экранах изображение занимает всю ширину */
+        padding: 15px;
+    }
+
+    .product-detail-info {
+        padding: 20px;
+    }
+
+    .product-detail-title {
+        font-size: 2em;
+    }
+
+    .product-detail-price {
+        font-size: 1.8em;
+    }
+
+    .add-to-cart-button,
+    .back-to-catalog-button {
+        width: 100%; /* Кнопки на всю ширину */
+        box-sizing: border-box; /* Учитываем padding и border в ширине */
+        margin-bottom: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .product-page-container {
+        padding: 20px 10px;
+    }
+
+    .product-detail-title {
+        font-size: 1.8em;
+    }
+
+    .product-detail-price {
+        font-size: 1.6em;
+    }
+
+    .product-detail-description {
+        font-size: 1em;
+    }
 }

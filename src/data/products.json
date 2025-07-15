@@ -1,58 +1,82 @@
 [
-   {
-     "id": 1,
-     "title": "Смартфон Pro X",
-     "image": "https://via.placeholder.com/150/0000FF/FFFFFF?text=Product+1",
-     "price": 799.99,
-     "category": "Электроника"
-   },
-   {
-     "id": 2,
-     "title": "Наушники Hi-Fi",
-     "image": "https://via.placeholder.com/150/FF0000/FFFFFF?text=Product+2",
-     "price": 149.50,
-     "category": "Электроника"
-   },
-   {
-     "id": 3,
-     "title": "Игровая клавиатура",
-     "image": "https://via.placeholder.com/150/00FF00/FFFFFF?text=Product+3",
-     "price": 85.00,
-     "category": "Компьютеры"
-   },
-   {
-     "id": 4,
-     "title": "Монитор UltraWide",
-     "image": "https://via.placeholder.com/150/FFFF00/000000?text=Product+4",
-     "price": 329.00,
-     "category": "Компьютеры"
-   },
-   {
-     "id": 5,
-     "title": "Мышь беспроводная",
-     "image": "https://via.placeholder.com/150/00FFFF/000000?text=Product+5",
-     "price": 35.75,
-     "category": "Компьютеры"
-   },
-   {
-     "id": 6,
-     "title": "Фитнес-трекер",
-     "image": "https://via.placeholder.com/150/FF00FF/FFFFFF?text=Product+6",
-     "price": 55.99,
-     "category": "Гаджеты"
-   },
-   {
-     "id": 7,
-     "title": "Умные часы",
-     "image": "https://via.placeholder.com/150/800080/FFFFFF?text=Product+7",
-     "price": 199.00,
-     "category": "Гаджеты"
-   },
-   {
-     "id": 8,
-     "title": "Зарядное устройство GaN",
-     "image": "https://via.placeholder.com/150/008080/FFFFFF?text=Product+8",
-     "price": 25.00,
-     "category": "Аксессуары"
-   }
- ]
+  {
+    "id": 1,
+    "title": "Смартфон Pro X",
+    "description": "Мощный смартфон с передовыми функциями и высококачественной камерой.",
+    "price": 799.99,
+    "category": "Электроника",
+    "image": "https://picsum.photos/id/1005/400/300"
+  },
+  {
+    "id": 2,
+    "title": "Ноутбук UltraBook",
+    "description": "Легкий и производительный ноутбук для работы и развлечений.",
+    "price": 1200.00,
+    "category": "Компьютеры",
+    "image": "https://picsum.photos/id/1015/400/300"
+  },
+  {
+    "id": 3,
+    "title": "Наушники Hi-Fi",
+    "description": "Высококачественные наушники с отличным звуком и комфортной посадкой.",
+    "price": 149.50,
+    "category": "Электроника",
+    "image": "https://picsum.photos/id/1020/400/300"
+  },
+  {
+    "id": 4,
+    "title": "Игровая клавиатура RGB",
+    "description": "Механическая клавиатура с настраиваемой RGB-подсветкой для геймеров.",
+    "price": 85.00,
+    "category": "Компьютеры",
+    "image": "https://picsum.photos/id/1024/400/300"
+  },
+  {
+    "id": 5,
+    "title": "Монитор UltraWide",
+    "description": "Широкоформатный монитор для полного погружения в работу или игры.",
+    "price": 450.00,
+    "category": "Компьютеры",
+    "image": "https://picsum.photos/id/1033/400/300"
+  },
+  {
+    "id": 6,
+    "title": "Мышь беспроводная",
+    "description": "Эргономичная беспроводная мышь с длительным сроком службы батареи.",
+    "price": 35.00,
+    "category": "Компьютеры",
+    "image": "https://picsum.photos/id/1039/400/300"
+  },
+  {
+    "id": 7,
+    "title": "Игровая приставка",
+    "description": "Последняя модель игровой приставки с поддержкой 4K и эксклюзивными играми.",
+    "price": 499.99,
+    "category": "Электроника",
+    "image": "https://picsum.photos/id/1041/400/300"
+  },
+  {
+    "id": 8,
+    "title": "Веб-камера Full HD",
+    "description": "Веб-камера с разрешением Full HD для четких видеозвонков и стримов.",
+    "price": 59.99,
+    "category": "Компьютеры",
+    "image": "https://picsum.photos/id/1043/400/300"
+  },
+  {
+    "id": 9,
+    "title": "SSD накопитель 1TB",
+    "description": "Высокоскоростной твердотельный накопитель объемом 1 ТБ.",
+    "price": 99.00,
+    "category": "Компьютеры",
+    "image": "https://picsum.photos/id/1048/400/300"
+  },
+  {
+    "id": 10,
+    "title": "Портативная колонка",
+    "description": "Компактная портативная колонка с мощным звуком и длительным временем работы.",
+    "price": 75.00,
+    "category": "Электроника",
+    "image": "https://picsum.photos/id/1053/400/300"
+  }
+]

@@ -1,0 +1,109 @@
+/* src/pages/HomePage.css */
+
+.homepage-container {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   min-height: calc(100vh - var(--header-height)); /* Занимаем почти всю высоту экрана */
+   text-align: center;
+   padding: 40px 20px;
+   background: linear-gradient(135deg, #e0f2f7 0%, #c1e4eb 100%); /* Градиентный фон */
+   color: var(--text-dark);
+   box-sizing: border-box;
+}
+
+.homepage-title {
+   font-size: 3.5em;
+   margin-bottom: 25px;
+   color: #2c3e50;
+   text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+   animation: fadeInDown 1s ease-out; /* Анимация появления */
+}
+
+.homepage-description {
+   font-size: 1.3em;
+   max-width: 700px;
+   margin-bottom: 40px;
+   color: #555;
+   animation: fadeInUp 1s ease-out 0.3s forwards; /* Задержка анимации */
+   opacity: 0; /* Скрываем изначально */
+}
+
+.homepage-button {
+   display: inline-block;
+   background-color: var(--success-color);
+   color: white;
+   padding: 15px 35px;
+   border-radius: 30px; /* Более округлая кнопка */
+   font-size: 1.2em;
+   font-weight: bold;
+   text-decoration: none;
+   box-shadow: var(--box-shadow-md);
+   transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+   animation: zoomIn 0.8s ease-out 0.6s forwards; /* Задержка анимации */
+   opacity: 0; /* Скрываем изначально */
+}
+
+.homepage-button:hover {
+   background-color: #218838;
+   transform: translateY(-5px) scale(1.02); /* Эффект подъема и легкого увеличения */
+   box-shadow: var(--box-shadow-lg);
+}
+
+/* Анимации */
+@keyframes fadeInDown {
+   from {
+       opacity: 0;
+       transform: translateY(-20px);
+   }
+   to {
+       opacity: 1;
+       transform: translateY(0);
+   }
+}
+
+@keyframes fadeInUp {
+   from {
+       opacity: 0;
+       transform: translateY(20px);
+   }
+   to {
+       opacity: 1;
+       transform: translateY(0);
+   }
+}
+
+@keyframes zoomIn {
+   from {
+       opacity: 0;
+       transform: scale(0.8);
+   }
+   to {
+       opacity: 1;
+       transform: scale(1);
+   }
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+   .homepage-title {
+       font-size: 2.5em;
+   }
+   .homepage-description {
+       font-size: 1.1em;
+   }
+   .homepage-button {
+       padding: 12px 25px;
+       font-size: 1em;
+   }
+}
+
+@media (max-width: 480px) {
+   .homepage-title {
+       font-size: 2em;
+   }
+   .homepage-description {
+       font-size: 1em;
+   }
+}

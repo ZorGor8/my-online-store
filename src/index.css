@@ -1,22 +1,141 @@
 /* src/index.css */
 
-/* Basic CSS Reset */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+/* Переменные CSS для удобства */
+:root {
+  --primary-color: #007bff; /* Синий для основных элементов */
+  --secondary-color: #6c757d; /* Серый для второстепенных */
+  --success-color: #28a745; /* Зеленый для успеха/корзины */
+  --warning-color: #ffc107; /* Желтый для предупреждений */
+  --danger-color: #dc3545; /* Красный для ошибок */
+  --info-color: #17a2b8; /* Голубой для информации */
+  --light-bg: #f8f9fa; /* Светлый фон */
+  --dark-bg: #343a40; /* Темный фон */
+  --text-dark: #212529; /* Темный текст */
+  --text-light: #f8f9fa; /* Светлый текст */
+  --border-color: #dee2e6; /* Цвет границ */
+
+  --header-height: 70px; /* Высота шапки */
+  --footer-height: 50px; /* Высота подвала (если добавим) */
+
+  --font-family-sans-serif: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  --box-shadow-sm: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  --box-shadow-md: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+  --box-shadow-lg: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
 }
 
+/* Общие сбросы и базовые стили */
 body {
-  font-family: Arial, sans-serif;
+  margin: 0;
+  font-family: var(--font-family-sans-serif);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f4f7f6; /* Светлый фон всего приложения */
+  color: var(--text-dark);
   line-height: 1.6;
-  color: #333;
-  background-color: #f4f4f4;
-  padding: 20px; /* Небольшой отступ от краев страницы */
 }
 
-h2 {
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+      monospace;
+}
+
+a {
+  text-decoration: none;
+  color: var(--primary-color);
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--primary-color); /* Или более темный оттенок */
+}
+
+/* Кнопки - базовые стили и анимации */
+button, .button-like-link { /* Применяем к Link с классом, который имитирует кнопку */
+  display: inline-block;
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--text-dark);
   text-align: center;
-  margin-bottom: 30px;
-  color: #007bff;
+  vertical-align: middle;
+  cursor: pointer;
+  user-select: none;
+  background-color: transparent;
+  border: 1px solid transparent;
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  border-radius: 0.3rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+              border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out,
+              transform 0.15s ease; /* Добавляем transform */
+}
+
+button:hover, .button-like-link:hover {
+  transform: translateY(-2px); /* Эффект легкого подъема */
+  box-shadow: var(--box-shadow-sm);
+}
+
+/* Цвета кнопок */
+.btn-primary {
+  color: #fff;
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.btn-primary:hover {
+  color: #fff;
+  background-color: #0056b3;
+  border-color: #0056b3;
+}
+
+.btn-success {
+  color: #fff;
+  background-color: var(--success-color);
+  border-color: var(--success-color);
+}
+
+.btn-success:hover {
+  color: #fff;
+  background-color: #218838;
+  border-color: #1e7e34;
+}
+
+.btn-warning {
+  color: var(--text-dark); /* Для желтых кнопок текст часто темный */
+  background-color: var(--warning-color);
+  border-color: var(--warning-color);
+}
+
+.btn-warning:hover {
+  color: var(--text-dark);
+  background-color: #e0a800;
+  border-color: #d39e00;
+}
+
+/* Главное содержимое */
+main {
+  min-height: calc(100vh - var(--header-height) - var(--footer-height, 0px)); /* Обеспечиваем, чтобы main занимал оставшееся пространство */
+  padding: 20px; /* Общий отступ для страниц */
+  box-sizing: border-box;
+}
+
+/* Стили для заголовков */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text-dark);
+  font-weight: 700;
+  margin-top: 0;
+  margin-bottom: 0.5em;
+}
+
+p {
+  margin-bottom: 1em;
+}
+
+/* Утилитарные классы */
+.text-center {
+  text-align: center;
+}
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
 }

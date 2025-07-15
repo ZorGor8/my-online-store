@@ -1,38 +1,31 @@
-// src/App.jsx
-import { useState } from 'react'; // Оставим useState на всякий случай, он пока не нужен
-import ProductList from './components/ProductList'; // <--- Добавь эту строку
-import './App.css'; // Оставим импорт стилей
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Header from './components/Header';
+import HomePage from './pages/HomePage';
+import ProductList from './components/ProductList'; // <-- ИМПОРТ ProductList
+import ProductPage from './pages/ProductPage';
+// import CatalogPage from './pages/CatalogPage'; // <-- ЗАКОММЕНТИРУЙТЕ ИЛИ УДАЛИТЕ ПОСЛЕ УСПЕХА
+// import Footer from './components/Footer';
 
-// 'BrowserRouter as Router' позволяет нам использовать более короткое имя 'Router'
-import Header from './components/Header'; // Убедись, что эти импорты есть
-import './App.css'; // Убедись, что этот импорт есть
-
-
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'; // Добавляем Routes, Route
-import HomePage from './pages/Homepage'; // Импорт HomePage
-import CatalogPage from './pages/Catalogpage'; // Импорт CatalogPage
-import ProductPage from './pages/ProductPage'; // Импорт ProductPage
-
-
+import './App.css';
+import './index.css'; // Если index.css импортируется здесь, а не в main.jsx
 
 function App() {
-
   return (
-    <Router> {/* Оборачиваем все наше приложение в Router */}
-      <div className="App">
+    <Router>
+      <div className="app-container">
         <Header />
         <main>
-          <Routes> {/* Контейнер для всех наших маршрутов */}
-            <Route path="/" element={<HomePage />} /> {/* Маршрут для главной страницы */}
-            <Route path="/catalog" element={<CatalogPage />} /> {/* Маршрут для страницы каталога */}
-            {/* Маршрут для страницы продукта. :id - это параметр, который будет меняться */}
-            <Route path="/product/:id" element={<ProductPage />} />
-            {/* Можно добавить маршрут для 404 страницы, если путь не найден */}
-            <Route path="*" element={<div>404 Page Not Found</div>} />
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/products" element={<ProductList />} /> {/* <-- ИСПОЛЬЗУЙТЕ ProductList ЗДЕСЬ */}
+            <Route path="/products/:id" element={<ProductPage />} />
+            {/* ...другие маршруты */}
           </Routes>
         </main>
+        {/* <Footer /> */}
       </div>
-    </Router> // Закрывающий тег Router
+    </Router>
   );
 }
 
