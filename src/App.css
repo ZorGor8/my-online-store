@@ -7,3 +7,169 @@
 main {
    flex-grow: 1;
 }
+
+
+/* src/components/ProductList.css или App.css */
+
+.no-favorites-message {
+   text-align: center;
+   padding: 50px 20px;
+   font-size: 1.3em;
+   color: #555;
+   background-color: #f9f9f9;
+   border-radius: 10px;
+   margin-top: 50px;
+   box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+.no-favorites-message p {
+   margin-bottom: 20px;
+}
+
+.no-favorites-message .details-button { /* Или другой класс кнопки, если хотите */
+   display: inline-block;
+   margin-top: 20px;
+   padding: 12px 25px;
+   font-size: 1em;
+   text-decoration: none;
+   background-color: var(--primary-color); /* Используем переменную, если она определена */
+   color: white;
+   border-radius: 8px;
+   transition: background-color 0.3s ease;
+}
+
+.no-favorites-message .details-button:hover {
+   background-color: var(--primary-dark);
+}
+
+/* src/App.css */
+
+/* Общие переменные, если они используются */
+:root {
+   --primary-color: #007bff; /* Пример основного цвета */
+   --primary-dark: #0056b3;
+   --text-color: #333;
+   --background-color: #f4f7f6;
+   --header-bg: #343a40; /* Темный фон для шапки */
+   --header-text-color: #ffffff; /* Белый текст для шапки */
+   --box-shadow-sm: 0 2px 4px rgba(0,0,0,0.1);
+   --box-shadow-lg: 0 8px 16px rgba(0,0,0,0.2);
+   --border-color: #dee2e6;
+}
+
+/* Общие стили для всего приложения */
+body {
+   margin: 0;
+   font-family: 'Arial', sans-serif;
+   background-color: var(--background-color);
+   color: var(--text-color);
+   line-height: 1.6;
+}
+
+.app {
+   display: flex;
+   flex-direction: column;
+   min-height: 100vh;
+}
+
+/* Стили для шапки */
+.app-header {
+   background-color: var(--header-bg);
+   color: var(--header-text-color);
+   padding: 15px 20px;
+   box-shadow: var(--box-shadow-sm);
+   position: sticky; /* Чтобы шапка оставалась сверху при прокрутке */
+   top: 0;
+   z-index: 1000; /* Чтобы шапка была поверх другого контента */
+}
+
+.main-nav {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   max-width: 1200px;
+   margin: 0 auto;
+   flex-wrap: wrap; /* Для адаптивности */
+}
+
+.nav-logo {
+   font-size: 1.8em;
+   font-weight: bold;
+   color: var(--header-text-color);
+   text-decoration: none;
+   padding: 5px 0;
+}
+
+.nav-links {
+   list-style: none;
+   margin: 0;
+   padding: 0;
+   display: flex;
+   gap: 25px; /* Отступ между элементами меню */
+}
+
+.nav-links li a {
+   color: var(--header-text-color);
+   text-decoration: none;
+   font-size: 1.1em;
+   font-weight: 500;
+   padding: 5px 0;
+   transition: color 0.3s ease;
+}
+
+.nav-links li a:hover {
+   color: var(--primary-color); /* Изменение цвета при наведении */
+}
+
+/* Стили для основного содержимого */
+.app-content {
+   flex-grow: 1; /* Чтобы содержимое занимало все доступное пространство */
+   padding: 20px;
+}
+
+/* Стили для подвала */
+.app-footer {
+   background-color: var(--header-bg); /* Тот же фон, что и у шапки */
+   color: var(--header-text-color);
+   text-align: center;
+   padding: 20px;
+   font-size: 0.9em;
+   margin-top: 30px; /* Отступ от основного содержимого */
+}
+
+/* Медиа-запросы для адаптивности */
+@media (max-width: 768px) {
+   .main-nav {
+       flex-direction: column;
+       align-items: flex-start;
+       gap: 15px;
+   }
+
+   .nav-logo {
+       margin-bottom: 10px;
+   }
+
+   .nav-links {
+       flex-direction: column;
+       align-items: flex-start;
+       width: 100%;
+       gap: 10px;
+   }
+
+   .nav-links li {
+       width: 100%; /* Каждая ссылка занимает всю ширину */
+   }
+
+   .nav-links li a {
+       display: block; /* Чтобы ссылка занимала всю ширину LI */
+       padding: 8px 10px;
+       background-color: rgba(255, 255, 255, 0.1); /* Легкий фон для кнопок в меню */
+       border-radius: 5px;
+   }
+
+   .nav-links li a:hover {
+       background-color: rgba(255, 255, 255, 0.2);
+   }
+}
+
+

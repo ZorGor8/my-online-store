@@ -1,20 +1,40 @@
 // src/components/ProductList.jsx
-import React, { useState } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
-import productsData from '../data/products.json';
-import './ProductList.css'; // <-- УБЕДИТЕСЬ, ЧТО ЭТА СТРОКА НА МЕСТЕ И ПРАВИЛЬНАЯ!
-import Modal from './Modal';
+import productsData from '../data/products.json'; // Убедитесь, что путь к products.json правильный
+import './ProductList.css';
+import Modal from './Modal'; // Убедитесь, что путь к Modal.jsx правильный
+import ProductCard from './ProductCard'; // Импортируем компонент ProductCard
 
 function ProductList() {
   const [searchParams, setSearchParams] = useSearchParams();
 
+  // Состояние для модального окна (для корзины)
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalMessage, setModalMessage] = useState('');
+
+  // Состояние для избранных продуктов
+  // Инициализируем из localStorage при загрузке компонента
+  const [favoriteProductIds, setFavoriteProductIds] = useState(() => {
+    const savedFavorites = localStorage.getItem('favoriteProducts');
+    try {
+      // Проверяем, что savedFavorites не null/undefined и является валидным JSON
+      return savedFavorites ? JSON.parse(savedFavorites) : [];
+    } catch (e) {
+      console.error("Ошибка при парсинге избранных из localStorage:", e);
+      return []; // Возвращаем пустой массив в случае ошибки парсинга
+    }
+  });
+
+  // Эффект для сохранения избранных продуктов в localStorage при каждом изменении
+  useEffect(() => {
+    localStorage.setItem('favoriteProducts', JSON.stringify(favoriteProductIds));
+  }, [favoriteProductIds]);
 
   const currentCategory = searchParams.get('category') || '';
   const currentSearchQuery = searchParams.get('search') || '';
 
-  const filteredProducts = React.useMemo(() => {
+  const filteredProducts = useMemo(() => {
     let tempProducts = productsData;
 
     if (currentCategory && currentCategory !== 'Все') {
@@ -25,7 +45,7 @@ function ProductList() {
 
     if (currentSearchQuery) {
       tempProducts = tempProducts.filter(product =>
-        product.title.toLowerCase().includes(currentSearchQuery.toLowerCase()) ||
+        product.title.toLowerCase().includes(currentSearchQuery.toLowerCase()) || // Используйте product.title, если в JSON это поле
         product.category.toLowerCase().includes(currentSearchQuery.toLowerCase()) ||
         product.description.toLowerCase().includes(currentSearchQuery.toLowerCase())
       );
@@ -34,7 +54,8 @@ function ProductList() {
     return tempProducts;
   }, [currentCategory, currentSearchQuery]);
 
-  const categories = ['Все', ...new Set(productsData.map(product => product.category))];
+  // Генерируем категории из данных продуктов, фильтруем пустые значения
+  const categories = ['Все', ...new Set(productsData.map(product => product.category).filter(Boolean))];
 
   const handleCategoryChange = (category) => {
     const newParams = new URLSearchParams(searchParams);
@@ -61,9 +82,23 @@ function ProductList() {
     setSearchParams({});
   };
 
+  // Функция для обработки добавления в корзину (передается в ProductCard)
   const handleAddToCart = (productTitle) => {
     setModalMessage(`"${productTitle}" добавлен в корзину!`);
     setIsModalOpen(true);
+  };
+
+  // Функция для обработки переключения избранного из ProductCard
+  const handleToggleFavorite = (productId, isFavoriteStatus) => {
+    setFavoriteProductIds(prevFavorites => {
+      if (isFavoriteStatus) {
+        // Добавляем ID продукта, если его нет в списке избранных
+        return [...new Set([...prevFavorites, productId])]; // Используем Set для гарантии уникальности
+      } else {
+        // Удаляем ID продукта из списка избранных
+        return prevFavorites.filter(id => id !== productId);
+      }
+    });
   };
 
   const handleCloseModal = () => {
@@ -106,24 +141,13 @@ function ProductList() {
       <div className="product-grid">
         {filteredProducts.length > 0 ? (
           filteredProducts.map(product => (
-            <div key={product.id} className="product-card">
-              {product.image && <img src={product.image} alt={product.title} className="product-image" />}
-              <h3 className="product-title">{product.title}</h3>
-              <p className="product-price">${product.price.toFixed(2)}</p>
-              <p className="product-category">Категория: {product.category}</p>
-
-              <div className="product-card-buttons">
-                <Link to={`/products/${product.id}`} className="details-button">
-                  Подробнее
-                </Link>
-                <button
-                  className="add-to-cart-button"
-                  onClick={() => handleAddToCart(product.title)}
-                >
-                  Добавить в корзину
-                </button>
-              </div>
-            </div>
+            <ProductCard
+              key={product.id}
+              product={product}
+              onToggleFavorite={handleToggleFavorite} // Передаем функцию для обновления избранного
+              isInitiallyFavorite={favoriteProductIds.includes(product.id)} // Передаем начальное состояние избранного
+              onAddToCart={handleAddToCart} // Передаем функцию добавления в корзину
+            />
           ))
         ) : (
           <p>По вашему запросу товаров не найдено.</p>
