@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import productsData from '../data/products.json';
-import './ProductPage.css'; // <-- Убедитесь, что этот импорт присутствует и корректен
+import './ProductPage.css';
 import Modal from '../components/Modal';
 
 function ProductPage() {
@@ -13,7 +13,8 @@ function ProductPage() {
   const [modalMessage, setModalMessage] = useState('');
 
   useEffect(() => {
-    const foundProduct = productsData.find(p => p.id === parseInt(id));
+    // Исправление для 'radix':
+    const foundProduct = productsData.find(p => p.id === parseInt(id, 10)); // <-- Добавлено , 10
     setProduct(foundProduct);
     setLoading(false);
   }, [id]);
@@ -55,7 +56,8 @@ function ProductPage() {
           <p className="product-detail-price">${product.price.toFixed(2)}</p>
           <p className="product-detail-category">Категория: {product.category}</p>
           <p className="product-detail-description">{product.description}</p>
-          <button className="add-to-cart-button" onClick={() => handleAddToCart(product.title)}>
+          {/* ИСПРАВЛЕНИЕ: Добавлен type="button" */}
+          <button type="button" className="add-to-cart-button" onClick={() => handleAddToCart(product.title)}>
             Добавить в корзину
           </button>
           <Link to="/catalog" className="back-to-catalog-button">
@@ -66,7 +68,8 @@ function ProductPage() {
 
       <Modal isOpen={isModalOpen} onClose={handleCloseModal} title="Уведомление">
         <p>{modalMessage}</p>
-        <button onClick={handleCloseModal}>ОК</button>
+        {/* ИСПРАВЛЕНИЕ: Добавлен type="button" */}
+        <button type="button" onClick={handleCloseModal}>ОК</button>
       </Modal>
     </div>
   );

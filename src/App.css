@@ -172,4 +172,148 @@ body {
    }
 }
 
+/* src/App.css */
 
+/* ... (ваши существующие стили app, header, nav, footer и т.д.) ... */
+
+/* --- Стили для Homepage.jsx --- */
+
+.homepage-container {
+   padding: 40px 20px;
+   max-width: 1200px;
+   margin: 0 auto;
+   text-align: center;
+}
+
+.hero-section {
+   background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+   color: white;
+   padding: 80px 20px;
+   border-radius: 15px;
+   margin-bottom: 50px;
+   box-shadow: var(--box-shadow-lg);
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+}
+
+.hero-section h1 {
+   font-size: 3.5em;
+   margin-bottom: 20px;
+   font-weight: 700;
+   letter-spacing: -1px;
+}
+
+.hero-tagline {
+   font-size: 1.5em;
+   max-width: 800px;
+   margin-bottom: 40px;
+   line-height: 1.4;
+}
+
+/* Общие стили для кнопок */
+.button {
+   display: inline-block;
+   padding: 15px 30px;
+   font-size: 1.1em;
+   font-weight: bold;
+   text-decoration: none;
+   border: none;
+   border-radius: 10px;
+   cursor: pointer;
+   transition: transform 0.2s ease, box-shadow 0.2s ease;
+   box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.button:hover {
+   transform: translateY(-2px);
+   box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+}
+
+.primary-button {
+   background-color: white;
+   color: var(--primary-color);
+}
+
+.primary-button:hover {
+   background-color: #f0f0f0;
+}
+
+/* Стили для секции рассылки */
+.newsletter-section {
+   background-color: #ffffff;
+   padding: 50px 20px;
+   border-radius: 15px;
+   box-shadow: var(--box-shadow-sm);
+   margin-bottom: 50px;
+}
+
+.newsletter-section h2 {
+   font-size: 2.5em;
+   margin-bottom: 20px;
+   color: var(--primary-dark);
+}
+
+.newsletter-section p {
+   font-size: 1.1em;
+   color: #666;
+   margin-bottom: 30px;
+}
+
+.newsletter-form {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   gap: 20px; /* Отступ между элементами формы */
+   max-width: 500px;
+   margin: 0 auto;
+}
+
+.newsletter-input {
+   width: 100%;
+   padding: 15px 20px;
+   font-size: 1.1em;
+   border: 1px solid var(--border-color);
+   border-radius: 8px;
+   box-sizing: border-box; /* Важно для padding и width */
+}
+
+.secondary-button {
+   background-color: #6c757d; /* Темно-серый */
+   color: white;
+}
+
+.secondary-button:hover {
+   background-color: #5a6268;
+}
+
+.newsletter-privacy {
+   font-size: 0.9em;
+   color: #888;
+   margin-top: 10px;
+}
+
+
+/* Медиа-запросы для адаптивности Homepage */
+@media (max-width: 768px) {
+   .hero-section {
+       padding: 50px 15px;
+   }
+   .hero-section h1 {
+       font-size: 2.5em;
+   }
+   .hero-tagline {
+       font-size: 1.2em;
+   }
+   .newsletter-section {
+       padding: 30px 15px;
+   }
+   .newsletter-section h2 {
+       font-size: 2em;
+   }
+   .button {
+       padding: 12px 20px;
+       font-size: 1em;
+   }
+}

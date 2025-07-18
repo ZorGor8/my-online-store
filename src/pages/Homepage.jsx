@@ -1,76 +1,41 @@
-// src/pages/HomePage.jsx
-import React, { useState } from 'react'; // Добавили useState
-import { Link } from 'react-router-dom';
-import './HomePage.css'; // Убедитесь, что у вас есть этот файл стилей
+// src/pages/Homepage.jsx
+import React from 'react';
+import { Link } from 'react-router-dom'; // Импортируем Link для навигации
 
-function HomePage() {
-  const [email, setEmail] = useState('');
-  const [submissionMessage, setSubmissionMessage] = useState(''); // Для сообщений после отправки
-
-  const handleSubmit = (e) => {
-    e.preventDefault(); // Предотвращаем стандартное поведение формы (перезагрузку страницы)
-
-    // Простая валидация
-    if (!email) {
-      setSubmissionMessage('Пожалуйста, введите ваш Email.');
-      return;
-    }
-    if (!email.includes('@') || !email.includes('.')) {
-      setSubmissionMessage('Пожалуйста, введите корректный Email.');
-      return;
-    }
-
-    // Здесь можно было бы отправить данные на сервер
-    console.log('Подписка на Email:', email);
-    setSubmissionMessage(`Спасибо за подписку, ${email}!`);
-    setEmail(''); // Очищаем поле ввода
-  };
-
+function Homepage() {
   return (
-    <div className="home-page-container">
-      <h1>Добро пожаловать в наш Магазин!</h1>
-      <p>Откройте для себя новейшие гаджеты и электронику.</p>
-
-      <Link to="/catalog" className="cta-button">
-        Перейти в Каталог
-      </Link>
-
-      <section className="newsletter-signup">
-        <h2>Подпишитесь на нашу рассылку!</h2>
-        <p>Получайте эксклюзивные предложения и последние новости.</p>
-        <form onSubmit={handleSubmit}>
-          <div className="form-group">
-            <label htmlFor="email-signup">Ваш Email:</label>
-            <input
-              type="email"
-              id="email-signup"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="Введите ваш Email"
-              required
-              // Атрибуты доступности (ARIA)
-              aria-label="Ваш адрес электронной почты для подписки"
-              aria-required="true" // Указывает, что поле обязательно для заполнения
-              aria-describedby="email-help-text" // Связывает поле с описательным текстом
-            />
-            <small id="email-help-text" className="help-text">
-              Мы никогда не передадим ваш Email третьим лицам.
-            </small>
-          </div>
-          <button type="submit" className="submit-button">Подписаться</button>
-        </form>
-        {submissionMessage && (
-          <p
-            className={`submission-message ${submissionMessage.includes('Спасибо') ? 'success' : 'error'}`}
-            role="alert" // Роль alert сообщает скринридерам о важном сообщении
-            aria-live="polite" // Указывает, что содержимое этого элемента может изменяться и должно быть объявлено скринридерами
-          >
-            {submissionMessage}
-          </p>
-        )}
+    <div className="homepage-container">
+      <section className="hero-section">
+        <h1>Добро пожаловать в PixelPulse!</h1> {/* Более яркий заголовок */}
+        <p className="hero-tagline">
+          Откройте для себя новейшие гаджеты, электронику и многое другое
+          по лучшим ценам.
+        </p>
+        <Link to="/products" className="button primary-button">
+          Перейти в Каталог
+        </Link>
       </section>
+
+      {/* Секция для рассылки, если она нужна, можно стилизовать её отдельно */}
+      <section className="newsletter-section">
+        <h2>Подпишитесь на нашу рассылку!</h2>
+        <p>Получайте эксклюзивные предложения и последние новости прямо на почту.</p>
+        <form className="newsletter-form">
+          <input
+            type="email"
+            placeholder="Ваш Email"
+            className="newsletter-input"
+          />
+          <button type="submit" className="button secondary-button">
+            Подписаться
+          </button>
+          <p className="newsletter-privacy">Мы никогда не передадим ваш Email третьим лицам.</p>
+        </form>
+      </section>
+
+      {/* Здесь можно добавить другие секции: популярные товары, преимущества и т.д. */}
     </div>
   );
 }
 
-export default HomePage;
+export default Homepage;
