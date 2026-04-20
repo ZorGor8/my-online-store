@@ -1,12 +1,24 @@
-# React + Vite
+# PixelPulse Online Store 🎸
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, high-performance e-commerce application built with React. This project demonstrates professional front-end architecture, focusing on state management, responsive UI, and automated testing.
 
-Currently, two official plugins are available:
+## 🚀 Tech Stack
+* **Framework:** React 18
+* **Build Tool:** Vite (optimized for M4/Apple Silicon)
+* **Routing:** React Router DOM
+* **State Management:** Context API (with LocalStorage persistence)
+* **Testing:** Vitest + React Testing Library
+* **Environment:** Node.js + JSDOM
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ Key Features
+* 🔍 **Smart Search & Filtering:** Real-time product search and category filtering using optimized `useMemo` hooks.
+* 🛒 **Advanced Cart Logic:** Full cart lifecycle management, including quantity adjustments and automated total price calculation.
+* ⚡ **Professional UX:** Implementation of Skeleton Screens to prevent layout shift and improve perceived performance during data loading.
+* ✅ **Automated Testing:** Comprehensive unit tests for business logic and UI interaction tests ensuring a bug-free user experience.
+* 📱 **Fully Responsive:** Mobile-first design approach using modern CSS Grid and Flexbox layouts.
 
-## Expanding the ESLint configuration
+## 🛠 Installation & Setup
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+1. **Clone the repository:**
+   ```bash
+   git clone [https://github.com/YOUR_USERNAME/my-online-store.git](https://github.com/YOUR_USERNAME/my-online-store.git)
