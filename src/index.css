@@ -1,21 +1,19 @@
-/* src/index.css */
 
-/* Переменные CSS для удобства */
 :root {
-  --primary-color: #007bff; /* Синий для основных элементов */
-  --secondary-color: #6c757d; /* Серый для второстепенных */
-  --success-color: #28a745; /* Зеленый для успеха/корзины */
-  --warning-color: #ffc107; /* Желтый для предупреждений */
-  --danger-color: #dc3545; /* Красный для ошибок */
-  --info-color: #17a2b8; /* Голубой для информации */
-  --light-bg: #f8f9fa; /* Светлый фон */
-  --dark-bg: #343a40; /* Темный фон */
-  --text-dark: #212529; /* Темный текст */
-  --text-light: #f8f9fa; /* Светлый текст */
-  --border-color: #dee2e6; /* Цвет границ */
+  --primary-color: #007bff;
+  --secondary-color: #6c757d; 
+  --success-color: #28a745; 
+  --warning-color: #ffc107; 
+  --danger-color: #dc3545;
+  --info-color: #17a2b8; 
+  --light-bg: #f8f9fa; 
+  --dark-bg: #343a40; 
+  --text-dark: #212529; 
+  --text-light: #f8f9fa; 
+  --border-color: #dee2e6; 
 
-  --header-height: 70px; /* Высота шапки */
-  --footer-height: 50px; /* Высота подвала (если добавим) */
+  --header-height: 70px; 
+  --footer-height: 50px; 
 
   --font-family-sans-serif: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
   --box-shadow-sm: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
@@ -23,13 +21,13 @@
   --box-shadow-lg: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
 }
 
-/* Общие сбросы и базовые стили */
+
 body {
   margin: 0;
   font-family: var(--font-family-sans-serif);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #f4f7f6; /* Светлый фон всего приложения */
+  background-color: #f4f7f6; 
   color: var(--text-dark);
   line-height: 1.6;
 }
@@ -46,11 +44,11 @@ a {
 }
 
 a:hover {
-  color: var(--primary-color); /* Или более темный оттенок */
+  color: var(--primary-color); 
 }
 
-/* Кнопки - базовые стили и анимации */
-button, .button-like-link { /* Применяем к Link с классом, который имитирует кнопку */
+
+button, .button-like-link {
   display: inline-block;
   font-weight: 600;
   line-height: 1.5;
@@ -66,15 +64,15 @@ button, .button-like-link { /* Применяем к Link с классом, к�
   border-radius: 0.3rem;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
               border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out,
-              transform 0.15s ease; /* Добавляем transform */
+              transform 0.15s ease; 
 }
 
 button:hover, .button-like-link:hover {
-  transform: translateY(-2px); /* Эффект легкого подъема */
+  transform: translateY(-2px);
   box-shadow: var(--box-shadow-sm);
 }
 
-/* Цвета кнопок */
+
 .btn-primary {
   color: #fff;
   background-color: var(--primary-color);
@@ -100,7 +98,7 @@ button:hover, .button-like-link:hover {
 }
 
 .btn-warning {
-  color: var(--text-dark); /* Для желтых кнопок текст часто темный */
+  color: var(--text-dark); 
   background-color: var(--warning-color);
   border-color: var(--warning-color);
 }
@@ -111,14 +109,13 @@ button:hover, .button-like-link:hover {
   border-color: #d39e00;
 }
 
-/* Главное содержимое */
+
 main {
-  min-height: calc(100vh - var(--header-height) - var(--footer-height, 0px)); /* Обеспечиваем, чтобы main занимал оставшееся пространство */
-  padding: 20px; /* Общий отступ для страниц */
+  min-height: calc(100vh - var(--header-height) - var(--footer-height, 0px)); 
   box-sizing: border-box;
 }
 
-/* Стили для заголовков */
+
 h1, h2, h3, h4, h5, h6 {
   color: var(--text-dark);
   font-weight: 700;
@@ -130,7 +127,6 @@ p {
   margin-bottom: 1em;
 }
 
-/* Утилитарные классы */
 .text-center {
   text-align: center;
 }

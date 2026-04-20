@@ -1,21 +1,39 @@
-// src/components/ProductList.jsx
-import React, { useState } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import productsData from '../data/products.json';
-import './ProductList.css'; // <-- УБЕДИТЕСЬ, ЧТО ЭТА СТРОКА НА МЕСТЕ И ПРАВИЛЬНАЯ!
+import { useContext } from 'react';
+import { CartContext } from '../context/CartContext';
+import './ProductList.css'; 
 import Modal from './Modal';
+import SkeletonCard from './SkeletonCard';
 
 function ProductList() {
   const [searchParams, setSearchParams] = useSearchParams();
-
+  const { addToCart, removeFromCart } = useContext(CartContext);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalMessage, setModalMessage] = useState('');
-
+  const [lastAddedId, setLastAddedId] = useState(null);
+  
+  // Состояния для загрузки [Loading states]
+  const [products, setProducts] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  
   const currentCategory = searchParams.get('category') || '';
   const currentSearchQuery = searchParams.get('search') || '';
 
-  const filteredProducts = React.useMemo(() => {
-    let tempProducts = productsData;
+  // Эффект имитации загрузки [Simulation of loading effect]
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setProducts(productsData); 
+      setIsLoading(false);      
+    }, 2000);
+
+    return () => clearTimeout(timer); 
+  }, []);
+
+  // Фильтрация теперь работает с загруженным стейтом [Filtering now works with the loaded state]
+  const filteredProducts = useMemo(() => {
+    let tempProducts = products; 
 
     if (currentCategory && currentCategory !== 'Все') {
       tempProducts = tempProducts.filter(product =>
@@ -32,7 +50,7 @@ function ProductList() {
     }
 
     return tempProducts;
-  }, [currentCategory, currentSearchQuery]);
+  }, [currentCategory, currentSearchQuery, products]);
 
   const categories = ['Все', ...new Set(productsData.map(product => product.category))];
 
@@ -61,12 +79,24 @@ function ProductList() {
     setSearchParams({});
   };
 
-  const handleAddToCart = (productTitle) => {
-    setModalMessage(`"${productTitle}" добавлен в корзину!`);
+  const handleAddToCart = (product) => {
+    addToCart(product);
+    setLastAddedId(product.id); 
+    setModalMessage(`"${product.title}" добавлен в корзину!`);
     setIsModalOpen(true);
   };
 
   const handleCloseModal = () => {
+    if (lastAddedId) {
+      removeFromCart(lastAddedId); 
+      setLastAddedId(null); 
+    }
+    setIsModalOpen(false);
+    setModalMessage('');
+  };
+
+  const handleConfirmOrder = () => {
+    setLastAddedId(null); 
     setIsModalOpen(false);
     setModalMessage('');
   };
@@ -104,7 +134,10 @@ function ProductList() {
       </div>
 
       <div className="product-grid">
-        {filteredProducts.length > 0 ? (
+        {isLoading ? (
+          // Показываем 6 скелетонов во время загрузки [Show 6 skeletons during loading]
+          [...Array(6)].map((_, index) => <SkeletonCard key={index} />)
+        ) : filteredProducts.length > 0 ? (
           filteredProducts.map(product => (
             <div key={product.id} className="product-card">
               {product.image && <img src={product.image} alt={product.title} className="product-image" />}
@@ -118,9 +151,9 @@ function ProductList() {
                 </Link>
                 <button
                   className="add-to-cart-button"
-                  onClick={() => handleAddToCart(product.title)}
+                  onClick={() => handleAddToCart(product)} 
                 >
-                  Добавить в корзину
+                  В корзину
                 </button>
               </div>
             </div>
@@ -130,9 +163,20 @@ function ProductList() {
         )}
       </div>
 
-      <Modal isOpen={isModalOpen} onClose={handleCloseModal} title="Уведомление">
-        <p>{modalMessage}</p>
-        <button onClick={handleCloseModal}>ОК</button>
+      <Modal 
+        isOpen={isModalOpen} 
+        onClose={handleCloseModal} 
+        title="Уведомление"
+      >
+        <div className="modal-actions-custom">
+          <p>{modalMessage}</p>
+          <button className="confirm-button" onClick={handleConfirmOrder}>
+            Оставить в корзине
+          </button>
+          <button className="cancel-button" onClick={handleCloseModal}>
+            Удалить / Отмена
+          </button>
+        </div>
       </Modal>
     </div>
   );

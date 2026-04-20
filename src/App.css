@@ -1,9 +1,25 @@
+/*src/App.css**/
+
+:root {
+  --success-color: #28a745;
+  --header-height: 80px; /* или высота твоей шапки */
+}
 .app-container {
    display: flex;
    flex-direction: column;
    min-height: 100vh;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), 
+  url('./assets/big-pixel.avif') !important;
+  
+  background-attachment: fixed !important; 
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;;
 }
-
 main {
    flex-grow: 1;
 }

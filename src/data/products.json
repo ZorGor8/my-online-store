@@ -1,82 +1,402 @@
 [
   {
     "id": 1,
-    "title": "Смартфон Pro X",
-    "description": "Мощный смартфон с передовыми функциями и высококачественной камерой.",
-    "price": 799.99,
-    "category": "Электроника",
-    "image": "https://picsum.photos/id/1005/400/300"
+    "title": "Ноутбук ASUS Pro",
+    "description": "Производительный ноутбук для работы и графики.",
+    "price": 1100.00,
+    "category": "Компьютеры",
+    "image": "/images/image_1.jpeg"
   },
   {
     "id": 2,
-    "title": "Ноутбук UltraBook",
-    "description": "Легкий и производительный ноутбук для работы и развлечений.",
-    "price": 1200.00,
-    "category": "Компьютеры",
-    "image": "https://picsum.photos/id/1015/400/300"
+    "title": "Игровая клавиатура RGB",
+    "description": "Механическая клавиатура с быстрой отдачей.",
+    "price": 75.50,
+    "category": "Аксессуары",
+    "image": "/images/image_2.jpeg"
   },
   {
     "id": 3,
-    "title": "Наушники Hi-Fi",
-    "description": "Высококачественные наушники с отличным звуком и комфортной посадкой.",
-    "price": 149.50,
-    "category": "Электроника",
-    "image": "https://picsum.photos/id/1020/400/300"
+    "title": "Монитор UltraSharp",
+    "description": "Разрешение 4K и идеальная цветопередача.",
+    "price": 420.00,
+    "category": "Компьютеры",
+    "image": "/images/image_3.jpeg"
   },
   {
     "id": 4,
-    "title": "Игровая клавиатура RGB",
-    "description": "Механическая клавиатура с настраиваемой RGB-подсветкой для геймеров.",
-    "price": 85.00,
-    "category": "Компьютеры",
-    "image": "https://picsum.photos/id/1024/400/300"
+    "title": "Беспроводная мышь",
+    "description": "Эргономичный дизайн и высокая точность.",
+    "price": 25.00,
+    "category": "Аксессуары",
+    "image": "/images/image_4.jpeg"
   },
   {
     "id": 5,
-    "title": "Монитор UltraWide",
-    "description": "Широкоформатный монитор для полного погружения в работу или игры.",
-    "price": 450.00,
-    "category": "Компьютеры",
-    "image": "https://picsum.photos/id/1033/400/300"
+    "title": "Веб-камера Full HD",
+    "description": "Идеально подходит для стримов и конференций.",
+    "price": 45.99,
+    "category": "Электроника",
+    "image": "/images/image_5.jpeg"
   },
   {
     "id": 6,
-    "title": "Мышь беспроводная",
-    "description": "Эргономичная беспроводная мышь с длительным сроком службы батареи.",
-    "price": 35.00,
+    "title": "Мини-ПК Intel",
+    "description": "Компактное решение для офисных задач.",
+    "price": 320.00,
     "category": "Компьютеры",
-    "image": "https://picsum.photos/id/1039/400/300"
+    "image": "/images/image_6.jpeg"
   },
   {
     "id": 7,
-    "title": "Игровая приставка",
-    "description": "Последняя модель игровой приставки с поддержкой 4K и эксклюзивными играми.",
-    "price": 499.99,
-    "category": "Электроника",
-    "image": "https://picsum.photos/id/1041/400/300"
+    "title": "Материнская плата Gaming",
+    "description": "Основа для твоего мощного игрового ПК.",
+    "price": 180.00,
+    "category": "Компьютеры",
+    "image": "/images/image_7.jpeg"
   },
   {
     "id": 8,
-    "title": "Веб-камера Full HD",
-    "description": "Веб-камера с разрешением Full HD для четких видеозвонков и стримов.",
-    "price": 59.99,
+    "title": "Видеокарта RTX Series",
+    "description": "Максимальная графика в любых современных играх.",
+    "price": 650.00,
     "category": "Компьютеры",
-    "image": "https://picsum.photos/id/1043/400/300"
+    "image": "/images/image_8.jpeg"
   },
   {
     "id": 9,
-    "title": "SSD накопитель 1TB",
-    "description": "Высокоскоростной твердотельный накопитель объемом 1 ТБ.",
-    "price": 99.00,
-    "category": "Компьютеры",
-    "image": "https://picsum.photos/id/1048/400/300"
+    "title": "Внешний накопитель 1TB",
+    "description": "Быстрая передача данных и надежное хранение.",
+    "price": 85.00,
+    "category": "Электроника",
+    "image": "/images/image_9.jpeg"
   },
   {
     "id": 10,
-    "title": "Портативная колонка",
-    "description": "Компактная портативная колонка с мощным звуком и длительным временем работы.",
-    "price": 75.00,
+    "title": "Процессор i7 New Gen",
+    "description": "Высокая скорость обработки данных.",
+    "price": 350.00,
+    "category": "Компьютеры",
+    "image": "/images/image_10.jpeg"
+  },
+  {
+    "id": 11,
+    "title": "Система охлаждения",
+    "description": "Тихая работа и эффективный отвод тепла.",
+    "price": 40.00,
+    "category": "Компьютеры",
+    "image": "/images/image_11.jpeg"
+  },
+  {
+    "id": 12,
+    "title": "IP Камера",
+    "description": "Умная камера с датчиком движения.",
+    "price": 60.00,
     "category": "Электроника",
-    "image": "https://picsum.photos/id/1053/400/300"
+    "image": "/images/image_12.jpeg"
+  },
+  {
+    "id": 13,
+    "title": "Адаптер питания",
+    "description": "Универсальное зарядное устройство для ноутбука.",
+    "price": 30.00,
+    "category": "Аксессуары",
+    "image": "/images/image_13.jpeg"
+  },
+  {
+    "id": 14,
+    "title": "USB Концентратор",
+    "description": "Расширь возможности своего подключения.",
+    "price": 15.50,
+    "category": "Аксессуары",
+    "image": "/images/image_14.jpeg"
+  },
+  {
+    "id": 15,
+    "title": "Портативная колонка",
+    "description": "Чистый звук в любом месте.",
+    "price": 55.00,
+    "category": "Электроника",
+    "image": "/images/image_15.jpeg"
+  },
+  {
+    "id": 16,
+    "title": "Графический планшет",
+    "description": "Для художников и дизайнеров.",
+    "price": 120.00,
+    "category": "Электроника",
+    "image": "/images/image_16.jpeg"
+  },
+  {
+    "id": 17,
+    "title": "Микрофон стримера",
+    "description": "Студийное качество записи голоса.",
+    "price": 95.00,
+    "category": "Электроника",
+    "image": "/images/image_17.jpeg"
+  },
+  {
+    "id": 18,
+    "title": "Оперативная память 16GB",
+    "description": "Ускорь свой ПК мгновенно.",
+    "price": 70.00,
+    "category": "Компьютеры",
+    "image": "/images/image_18.jpeg"
+  },
+  {
+    "id": 19,
+    "title": "Беспроводной роутер",
+    "description": "Стабильный интернет во всем доме.",
+    "price": 45.00,
+    "category": "Электроника",
+    "image": "/images/image_19.jpeg"
+  },
+  {
+    "id": 20,
+    "title": "Зарядное устройство GaN",
+    "description": "Быстрая зарядка для всех гаджетов.",
+    "price": 35.00,
+    "category": "Аксессуары",
+    "image": "/images/image_20.jpeg"
+  },
+  {
+    "id": 21,
+    "title": "Смарт-часы Pro",
+    "description": "Твой помощник в спорте и делах.",
+    "price": 199.00,
+    "category": "Электроника",
+    "image": "/images/image_21.jpeg"
+  },
+  {
+    "id": 22,
+    "title": "Игровой коврик",
+    "description": "Идеальное скольжение для мыши.",
+    "price": 12.00,
+    "category": "Аксессуары",
+    "image": "/images/image_22.jpeg"
+  },
+  {
+    "id": 23,
+    "title": "Набор кабелей",
+    "description": "Все нужные переходники в одном месте.",
+    "price": 10.00,
+    "category": "Аксессуары",
+    "image": "/images/image_23.jpeg"
+  },
+  {
+    "id": 24,
+    "title": "VR Очки",
+    "description": "Погружение в виртуальную реальность.",
+    "price": 300.00,
+    "category": "Электроника",
+    "image": "/images/image_24.jpeg"
+  },
+  {
+    "id": 25,
+    "title": "Док-станция",
+    "description": "Сделай из ноутбука рабочую станцию.",
+    "price": 80.00,
+    "category": "Компьютеры",
+    "image": "/images/image_25.jpeg"
+  },
+  {
+    "id": 26,
+    "title": "Кейс для HDD",
+    "description": "Преврати внутренний диск во внешний.",
+    "price": 18.00,
+    "category": "Аксессуары",
+    "image": "/images/image_26.jpeg"
+  },
+  {
+    "id": 27,
+    "title": "Игровые наушники",
+    "description": "Объемный звук 7.1 для геймеров.",
+    "price": 85.00,
+    "category": "Аксессуары",
+    "image": "/images/image_27.jpeg"
+  },
+  {
+    "id": 28,
+    "title": "Планшет 10 дюймов",
+    "description": "Яркий экран для кино и работы.",
+    "price": 250.00,
+    "category": "Электроника",
+    "image": "/images/image_28.jpeg"
+  },
+  {
+    "id": 29,
+    "title": "Блок питания 750W",
+    "description": "Надежное питание для игровой системы.",
+    "price": 110.00,
+    "category": "Компьютеры",
+    "image": "/images/image_29.jpeg"
+  },
+  {
+    "id": 30,
+    "title": "Bluetooth адаптер",
+    "description": "Добавь беспроводную связь своему ПК.",
+    "price": 10.00,
+    "category": "Аксессуары",
+    "image": "/images/image_30.jpeg"
+  },
+  {
+    "id": 31,
+    "title": "Сетевая карта",
+    "description": "Гигабитная скорость интернета.",
+    "price": 20.00,
+    "category": "Компьютеры",
+    "image": "/images/image_31.jpeg"
+  },
+  {
+    "id": 32,
+    "title": "Звуковая карта USB",
+    "description": "Улучши качество звука своих колонок.",
+    "price": 35.00,
+    "category": "Электроника",
+    "image": "/images/image_32.jpeg"
+  },
+  {
+    "id": 33,
+    "title": "Чистящий набор",
+    "description": "Твой экран всегда будет чистым.",
+    "price": 8.00,
+    "category": "Аксессуары",
+    "image": "/images/image_33.jpeg"
+  },
+  {
+    "id": 34,
+    "title": "Сумка для ноутбука",
+    "description": "Защита и стиль при переноске.",
+    "price": 30.00,
+    "category": "Аксессуары",
+    "image": "/images/image_34.jpeg"
+  },
+  {
+    "id": 35,
+    "title": "Подставка с охлаждением",
+    "description": "Твой ноутбук больше не перегреется.",
+    "price": 25.00,
+    "category": "Компьютеры",
+    "image": "/images/image_35.jpeg"
+  },
+  {
+    "id": 36,
+    "title": "Веб-камера 4K",
+    "description": "Максимальная четкость изображения.",
+    "price": 130.00,
+    "category": "Электроника",
+    "image": "/images/image_36.jpeg"
+  },
+  {
+    "id": 37,
+    "title": "Кронштейн для монитора",
+    "description": "Освободи место на рабочем столе.",
+    "price": 50.00,
+    "category": "Аксессуары",
+    "image": "/images/image_37.jpeg"
+  },
+  {
+    "id": 38,
+    "title": "Игровой руль",
+    "description": "Для любителей гоночных симуляторов.",
+    "price": 150.00,
+    "category": "Электроника",
+    "image": "/images/image_38.jpeg"
+  },
+  {
+    "id": 39,
+    "title": "Кардридер",
+    "description": "Поддерживает все форматы карт памяти.",
+    "price": 12.00,
+    "category": "Аксессуары",
+    "image": "/images/image_39.jpeg"
+  },
+  {
+    "id": 40,
+    "title": "Источник бесперебойного питания",
+    "description": "Защита техники от скачков напряжения.",
+    "price": 95.00,
+    "category": "Электроника",
+    "image": "/images/image_40.jpeg"
+  },
+  {
+    "id": 41,
+    "title": "Смартфон Lite",
+    "description": "Доступный и функциональный гаджет.",
+    "price": 299.00,
+    "category": "Электроника",
+    "image": "/images/image_41.jpeg"
+  },
+  {
+    "id": 42,
+    "title": "Термопаста",
+    "description": "Высокая теплопроводность для CPU.",
+    "price": 7.00,
+    "category": "Компьютеры",
+    "image": "/images/image_42.jpeg"
+  },
+  {
+    "id": 43,
+    "title": "Wi-Fi антенна",
+    "description": "Усиление сигнала беспроводной сети.",
+    "price": 15.00,
+    "category": "Электроника",
+    "image": "/images/image_43.jpeg"
+  },
+  {
+    "id": 44,
+    "title": "Портативный SSD",
+    "description": "Карманный диск огромной скорости.",
+    "price": 110.00,
+    "category": "Электроника",
+    "image": "/images/image_44.jpeg"
+  },
+  {
+    "id": 45,
+    "title": "Экшн-камера",
+    "description": "Снимай свои приключения в 4K.",
+    "price": 180.00,
+    "category": "Электроника",
+    "image": "/images/image_45.jpeg"
+  },
+  {
+    "id": 46,
+    "title": "Корпус для ПК",
+    "description": "Прозрачная панель и отличный обдув.",
+    "price": 85.00,
+    "category": "Компьютеры",
+    "image": "/images/image_46.jpeg"
+  },
+  {
+    "id": 47,
+    "title": "Графическая карта Pro",
+    "description": "Для рендеринга и сложных вычислений.",
+    "price": 999.00,
+    "category": "Компьютеры",
+    "image": "/images/image_47.jpeg"
+  },
+  {
+    "id": 48,
+    "title": "Проектор Mini",
+    "description": "Домашний кинотеатр в твоем кармане.",
+    "price": 140.00,
+    "category": "Электроника",
+    "image": "/images/image_48.jpeg"
+  },
+  {
+    "id": 49,
+    "title": "Настольная лампа для монитора",
+    "description": "Защита глаз при работе ночью.",
+    "price": 35.00,
+    "category": "Аксессуары",
+    "image": "/images/image_49.jpeg"
+  },
+  {
+    "id": 50,
+    "title": "Флешка 128GB",
+    "description": "Быстрый USB 3.0 интерфейс.",
+    "price": 15.00,
+    "category": "Аксессуары",
+    "image": "/images/image_50.jpeg"
   }
 ]

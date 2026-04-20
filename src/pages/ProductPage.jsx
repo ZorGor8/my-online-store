@@ -2,8 +2,12 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import productsData from '../data/products.json';
+import { useContext } from 'react';
+import { CartContext } from '../context/CartContext';
 import './ProductPage.css'; // <-- Убедитесь, что этот импорт присутствует и корректен
 import Modal from '../components/Modal';
+
+
 
 function ProductPage() {
   const { id } = useParams();
@@ -11,18 +15,20 @@ function ProductPage() {
   const [loading, setLoading] = useState(true);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalMessage, setModalMessage] = useState('');
-
+const { addToCart } = useContext(CartContext);
   useEffect(() => {
     const foundProduct = productsData.find(p => p.id === parseInt(id));
     setProduct(foundProduct);
     setLoading(false);
   }, [id]);
 
-  const handleAddToCart = (productTitle) => {
-    setModalMessage(`"${productTitle}" добавлен в корзину!`);
+ const handleAddToCart = () => {
+  if (product) {
+    addToCart(product); 
+    setModalMessage(`"${product.title}" добавлен в корзину!`);
     setIsModalOpen(true);
-  };
-
+  }
+};
   const handleCloseModal = () => {
     setIsModalOpen(false);
     setModalMessage('');
@@ -56,9 +62,9 @@ function ProductPage() {
           <p className="product-detail-category">Категория: {product.category}</p>
           <p className="product-detail-description">{product.description}</p>
           <button className="add-to-cart-button" onClick={() => handleAddToCart(product.title)}>
-            Добавить в корзину
+            В корзину
           </button>
-          <Link to="/catalog" className="back-to-catalog-button">
+          <Link to="/products" className="back-to-catalog-button">
             Вернуться в каталог
           </Link>
         </div>

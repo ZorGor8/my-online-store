@@ -1,16 +1,16 @@
-// src/pages/HomePage.jsx
-import React, { useState } from 'react'; // Добавили useState
+
+import React, { useState } from 'react'; 
 import { Link } from 'react-router-dom';
-import './HomePage.css'; // Убедитесь, что у вас есть этот файл стилей
+import './HomePage.css';
 
 function HomePage() {
   const [email, setEmail] = useState('');
-  const [submissionMessage, setSubmissionMessage] = useState(''); // Для сообщений после отправки
+  const [submissionMessage, setSubmissionMessage] = useState('');
 
   const handleSubmit = (e) => {
-    e.preventDefault(); // Предотвращаем стандартное поведение формы (перезагрузку страницы)
+    e.preventDefault(); 
 
-    // Простая валидация
+   
     if (!email) {
       setSubmissionMessage('Пожалуйста, введите ваш Email.');
       return;
@@ -20,18 +20,18 @@ function HomePage() {
       return;
     }
 
-    // Здесь можно было бы отправить данные на сервер
+  
     console.log('Подписка на Email:', email);
     setSubmissionMessage(`Спасибо за подписку, ${email}!`);
-    setEmail(''); // Очищаем поле ввода
+    setEmail(''); 
   };
 
   return (
     <div className="home-page-container">
-      <h1>Добро пожаловать в наш Магазин!</h1>
-      <p>Откройте для себя новейшие гаджеты и электронику.</p>
+      <h1 className="homepage-title">Добро пожаловать в наш Магазин!</h1>
+      <p className="homepage-description">Откройте для себя новейшие гаджеты и электронику.</p>
 
-      <Link to="/catalog" className="cta-button">
+      <Link to="/products" className="homepage-button">
         Перейти в Каталог
       </Link>
 
@@ -43,15 +43,16 @@ function HomePage() {
             <label htmlFor="email-signup">Ваш Email:</label>
             <input
               type="email"
-              id="email-signup"
+           
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Введите ваш Email"
+              className="newsletter-input"
               required
-              // Атрибуты доступности (ARIA)
+            
               aria-label="Ваш адрес электронной почты для подписки"
-              aria-required="true" // Указывает, что поле обязательно для заполнения
-              aria-describedby="email-help-text" // Связывает поле с описательным текстом
+              aria-required="true" 
+              aria-describedby="email-help-text" 
             />
             <small id="email-help-text" className="help-text">
               Мы никогда не передадим ваш Email третьим лицам.
@@ -62,8 +63,8 @@ function HomePage() {
         {submissionMessage && (
           <p
             className={`submission-message ${submissionMessage.includes('Спасибо') ? 'success' : 'error'}`}
-            role="alert" // Роль alert сообщает скринридерам о важном сообщении
-            aria-live="polite" // Указывает, что содержимое этого элемента может изменяться и должно быть объявлено скринридерами
+            role="alert" 
+            aria-live="polite" 
           >
             {submissionMessage}
           </p>

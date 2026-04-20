@@ -8,7 +8,7 @@ import prettierConfig from "eslint-config-prettier";
 
 export default [
   {
-    files: ["**/*.{js,jsx}"], // Или "**/*.{js,jsx,ts,tsx}" если используешь TypeScript
+    files: ["**/*.{js,jsx}"], 
     languageOptions: {
       parserOptions: {
         ecmaVersion: 2020,
@@ -19,8 +19,6 @@ export default [
       },
       globals: {
         ...globals.browser,
-        // Добавь globals.node, если ты пишешь что-то для Node.js в этом же проекте
-        // ...globals.node,
       }
     },
     plugins: {

@@ -1,0 +1,26 @@
+.checkout-container {
+    padding: 40px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+.checkout-content {
+    display: flex;
+    gap: 40px;
+}
+.checkout-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    flex: 1;
+}
+.checkout-form input, .checkout-form textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.order-summary {
+    flex: 1;
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+}
